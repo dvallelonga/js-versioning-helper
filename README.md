@@ -38,7 +38,7 @@ npm install
 
     var prodSettings = require('js-versioning-helper');
     module.exports = function(grunt) {
-      var s3Settings = prodSettings('versioningConfig');
+      var s3Settings = prodSettings('versioning'); //this is the name of your versioning config file
       grunt.initConfig({
         s3: s3Settings
       });
