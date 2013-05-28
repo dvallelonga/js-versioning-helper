@@ -55,18 +55,18 @@ var jsVersioningHelper = function(configurationFile){
           gzip: true
         },
         {
-          src: data.source+data.filename,
-          dest: data.versionArray[0]+'/'+data.filename,
+          src: data.source,
+          dest: data.versionArray[0]+'/',
           gzip: true
         },
         {
-          src: data.source+data.filename,
-          dest: data.versionArray[0]+'.'+data.versionArray[1]+'/'+data.filename,
+          src: data.source,
+          dest: data.versionArray[0]+'.'+data.versionArray[1]+'/',
           gzip: true
         },
         {
-          src: data.source+data.filename,
-          dest: data.versionArray[0]+'.'+data.versionArray[1]+'.'+data.versionArray[2]+'/'+data.filename,
+          src: data.source,
+          dest: data.versionArray[0]+'.'+data.versionArray[1]+'.'+data.versionArray[2]+'/',
           gzip: true
         }
       ]
