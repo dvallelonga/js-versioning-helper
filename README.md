@@ -47,6 +47,6 @@ npm install
     };
 
 
-Trype grunt.
+Type grunt.
 
 Versioning is very strict. You must use the vMajor.Minor.Revision method of versioning.
