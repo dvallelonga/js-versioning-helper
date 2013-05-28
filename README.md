@@ -8,17 +8,45 @@ You need to set AWS evnvrionment variables (probably in your .profile or .bashrc
     export AWS_ACCESS_KEY_ID=your_key_id
     export AWS_SECRET_ACCESS_KEY=your_seceret_key
 
-Better instructions coming soon.
+##Install & Dependencies
+
+###package.json
+
+    "dependencies": {
+        "js-versioning-helper": "latest",
+        "grunt": "~0.4.0",
+        "grunt-s3": "0.2.0-alpha.1"
+    }
+
+npm install
+
+###versioning.js
 
     var data = {
-      version: "v0.0.1",
+      version: "v0.0.20",
       key: process.env.AWS_ACCESS_KEY_ID,
       secret: process.env.AWS_SECRET_ACCESS_KEY,
-      bucket: 'your-bucket',
+      bucket: 'melt-upload',
       access: 'public-read',
       filename: 'test.js',
-      source: 'src/',
-      versionArray: []
+      source: 'src/'
     };
+    module.exports = data;
+
+
+###Gruntfile.js
+
+    var prodSettings = require('js-versioning-helper');
+    module.exports = function(grunt) {
+      var s3Settings = prodSettings('versioningConfig');
+      grunt.initConfig({
+        s3: s3Settings
+      });
+      grunt.loadNpmTasks('grunt-s3');
+      grunt.registerTask('default', ['s3']);
+    };
+
+
+Trype grunt.
 
 Versioning is very strict. You must use the vMajor.Minor.Revision method of versioning.

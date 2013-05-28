@@ -1,16 +1,9 @@
 {
   "name": "js-versioning-helper",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": false,
+  "author": "Richard Torruellas <rtorruellas@gmail.com>",
   "engines": {
     "node": ">= 0.8.0"
-  },
-  "devDependencies": {
-    "grunt": "~0.4.0",
-    "grunt-s3": "0.2.0-alpha.1"
-  },
-  "dependencies": {
-    "grunt": "~0.4.0",
-    "grunt-s3": "0.2.0-alpha.1"
   }
 }

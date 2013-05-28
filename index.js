@@ -1,23 +1,23 @@
 var fs = require('fs');
 var jsVersioningHelper = function(configurationFile){
-  var data = require('../'+configurationFile);
+  var data = require('../../'+configurationFile);
   var template = function(major, minor, revision){
     var html =
       '<html>\n' +
         '<body>\n' +
-          '<h1>' + data.filename + '</h1>\n'+
-          '<ul>\n' +
-            '<li>Rolling Major Release: <a href="http://'+data.bucket+'.s3.amazonaws.com'+'/'+major+'/'+data.filename+'">'+major+'</a></li>\n'+
-            '<li>Rolling Minor Release: <a href="http://'+data.bucket+'.s3.amazonaws.com'+'/'+major+'.'+minor+'/'+data.filename+'">'+major+'.'+minor+'</a></li>\n'+
-            '<li>Current Release: <a href="http://'+data.bucket+'.s3.amazonaws.com'+'/'+major+'.'+minor+'.'+revision+'/'+data.filename+'">'+major+'.'+minor+'.'+revision+'</a></li>\n'+
-          '</ul>\n' +
+        '<h1>' + data.filename + '</h1>\n'+
+        '<ul>\n' +
+        '<li>Rolling Major Release: <a href="http://'+data.bucket+'.s3.amazonaws.com'+'/'+major+'/'+data.filename+'">'+major+'</a></li>\n'+
+        '<li>Rolling Minor Release: <a href="http://'+data.bucket+'.s3.amazonaws.com'+'/'+major+'.'+minor+'/'+data.filename+'">'+major+'.'+minor+'</a></li>\n'+
+        '<li>Current Release: <a href="http://'+data.bucket+'.s3.amazonaws.com'+'/'+major+'.'+minor+'.'+revision+'/'+data.filename+'">'+major+'.'+minor+'.'+revision+'</a></li>\n'+
+        '</ul>\n' +
         '</body>\n' +
-      '</html>\n';
+        '</html>\n';
     return html;
   };
   var writeTemplateFile = function(template){
     var t = template;
-    var setLocation = 'settings/index.html';
+    var setLocation = 'node_modules/js-versioning-helper/settings/index.html';
     fs.writeFile(setLocation, t);
     data["webPage"] = setLocation;
     data["webPageDestination"] = 'web/index.html'
