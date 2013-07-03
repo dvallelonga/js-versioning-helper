@@ -5,6 +5,9 @@ by grunt and the grunt-s3 plugin. These are both dependencies of this module.
 
 You need to set AWS evnvrionment variables (probably in your .profile or .bashrc for example).
 
+If you want to run different configurations for different enviroments, checkout how
+[grunt.option](https://github.com/gruntjs/grunt/wiki/grunt.option) works.
+
     export AWS_ACCESS_KEY_ID=your_key_id
     export AWS_SECRET_ACCESS_KEY=your_seceret_key
 
@@ -45,7 +48,6 @@ npm install
       grunt.loadNpmTasks('grunt-s3');
       grunt.registerTask('default', ['s3']);
     };
-
 
 Type grunt.
 
